@@ -25,10 +25,6 @@ spec:
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- range $k, $v := .Values.securityContext }}
-              {{ $k }}: {{ $v }}
-            {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
