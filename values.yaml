@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: "akubala/micro-blog"
+  pullPolicy: "IfNotPresent"
+
+serviceAccount:
+  create: true
+  name: "micro-blog"
+  annotations:
+    app: "micro-blog"
+
+podAnnotations:
+    app: "micro-blog"
+
+securityContext:
+  readOnlyRootFilesystem: true
+
+service:
+  type: "ClusterIP"
+  port: 8000
